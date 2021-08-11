@@ -177,8 +177,7 @@ export const MoveShapingType = {
 	ZVD: 'ZVD',
 	ZVDD: 'ZVDD',
 	EI2: 'EI2',
-	EI3: 'EI3',
-	DAA: 'DAA'
+	EI3: 'EI3'
 }
 
 export const NetworkInterfaceType = {
