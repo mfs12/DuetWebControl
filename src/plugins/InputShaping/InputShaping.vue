@@ -245,11 +245,18 @@ import { mapState, mapGetters, mapActions } from 'vuex'
 
 import Events from '../../utils/events.js'
 import Path from '../../utils/path.js'
-import { MoveShapingType } from '../../store/machine/modelEnums.js'
 
 import { AccelStates } from './InputShapingEnums.js'
 import { Record, Session } from './InputShapingSession.js'
 import { makeNotification } from '../../utils/toast.js'
+
+let MoveShapingType = {
+		none: 'none',
+		zvd: 'zvd',
+		zvdd: 'zvdd',
+		ei2: 'ei2',
+		ei3: 'ei3'
+};
 
 export default {
 	computed: {
