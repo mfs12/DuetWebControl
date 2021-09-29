@@ -26,7 +26,6 @@
 					<v-select
 						:items="recorderMenuAxis"
 						v-model="test.axis"
-						v-on:input="$emit('input', test)"
 						:label="$t('plugins.inputShaping.axis')"
 						:rules="rules.axis"
 						required
@@ -74,14 +73,11 @@
 
 import { mapState } from 'vuex';
 
-import { Test } from './InputShapingSession.js';
-
 export default {
 	props: [ 'value', 'id', 'disabled' ],
 
 	data() {
 		return {
-			test: this.value ? this.value : new Test(),
 			rules: {
 				accel: [
 					v => /^\d+(?:\.\d+)?$/.test(v) || this.$t('plugins.inputShaping.validAccelerationId'),
@@ -131,6 +127,9 @@ export default {
 	computed: {
 		...mapState(['selectedMachine']),
 		...mapState('machine', ['model']),
+		test() {
+			return this.value;
+		},
 		recorderMenuAxis() {
 			return this.model.move.axes.map(axis => axis.letter);
 		},

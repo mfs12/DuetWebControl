@@ -80,7 +80,12 @@ export default {
 	},
 	computed: {
 		...mapState('machine', ['model']),
+		...mapState('machine/model', {
+			accelerometerBoards: state => state.boards.filter(board => board.accelerometer),
+			machineStatus: state => state.state.status
+		}),
 		accelerometerRuns() {
+				// TODO add tests for all computed OM parameters
 				return this.model.boards[0].accelerometer.runs;
 		},
 		accelerometerPoints() {
@@ -88,9 +93,6 @@ export default {
 		},
 		currentState() {
 			return Object.keys(this.RecorderStates).find(key => this.RecorderStates[key] === this.state);
-		},
-		machineStatus() {
-			return this.model.state.status;
 		},
 		session() {
 			return this.value;
@@ -235,7 +237,7 @@ export default {
 			console.log("configuring Alogorithm", code);
 
 			try {
-				let result = await this.sendCode({ code: code, fromInput: true, log: true });
+				let result = await this.sendCode({ code, log: true });
 				console.log(result);
 				if (result) {
 					console.error(typeof result, result);
@@ -276,7 +278,7 @@ export default {
 			let result = null;
 
 			try {
-				result = await this.sendCode({ code: test.getGCode(filename), fromInput: true, log: true });
+				result = await this.sendCode({ code: test.getGCode(filename), log: true });
 				if (result) {
 					console.error(result);
 					throw new Error('Failed to run test command.');

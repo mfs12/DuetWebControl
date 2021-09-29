@@ -73,7 +73,7 @@ export default {
 			console.log("TODO load session from storage");
 		},
 		deleteSession() {
-			if (this.sessionSelected.length < 0)
+			if (!this.sessionSelected)
 				return;
 
 			console.log("deleting", this.sessionSelected[0].id);
