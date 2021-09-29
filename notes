@@ -1,0 +1,5 @@
+# two way binding
+- :property.sync modifier v-model nachbau
+- use more one way bindings to pass object around
+- offer accelerometers according to boards
+- access selected board to access status of recording
