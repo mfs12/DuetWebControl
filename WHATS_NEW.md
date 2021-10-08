@@ -1,6 +1,62 @@
 Summary of important changes in recent versions
 ===============================================
 
+Version 3.4-b4
+==============
+
+Compatible versions:
+- DuetSoftwareFramework 3.4-b3
+- RepRapFirmware 3 or newer
+
+New features:
+- Added support for password protection to SBC connections
+
+Changed behaviour:
+- Increased default number of extrusion factor sliders from two to six
+
+Bug fixes:
+- Order of displayed extruders depended on toggle order
+- Auto-completion drop-down list could overlap the code input
+
+Version 3.4-b3
+==============
+
+Compatible versions:
+- DuetSoftwareFramework 3.4-b3
+- RepRapFirmware 3 or newer
+
+Changed behaviour:
+- Heightmap plugin is now based on BabylonJS (removes dependency to ThreeJS)
+
+Bug fixes:
+- When the sys directory was set without 0: at the start, the path was truncated on the System Files page
+
+Version 3.4-b2
+==============
+
+Compatible versions:
+- DuetSoftwareFramework 3.4-b2
+- RepRapFirmware 3 or newer
+
+New features:
+- Greatly improved performance for object model updates
+- Plugins may now register custom i18n data
+- Added controls from DWC-CNC fork
+
+Changed behaviour:
+- Old-style `rr_status` requests are no longer supported
+- Built-In/Third-Party Plugins are now called Integrated/External Plugins
+
+Version 3.4-b1
+==============
+
+Compatible versions:
+- DuetSoftwareFramework 3.4-b1
+- RepRapFirmware 2 or newer (1.2x may work but untested)
+
+New features:
+- Added preliminary Polish translations (thanks Chri55)
+
 Version 3.3.0
 =============
 

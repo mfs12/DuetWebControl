@@ -303,6 +303,7 @@ export default {
 		notImplemented: '{0} ist nicht implementiert',
 		invalidPassword: 'Ungültiges Passwort!',
 		noFreeSession: 'Keine weiteren freien Sitzungen!',
+		badVersion: 'Inkompatible Firmwareversion',
 		connect: 'Konnte nicht zu {0} verbinden',
 		disconnect: 'Konnte die Verbindung zu {0} nicht sauber trennen',
 		disconnected: 'Konnte die Aktion nicht beenden weil die Verbindung getrennt worden ist',
@@ -364,6 +365,7 @@ export default {
 			pausing: 'Pausiere',
 			paused: 'Pausiert',
             resuming: 'Wiederaufnahme',
+			cancelling: 'Abbrechen',
 			printing: 'Drucke',
 			processing: 'Verarbeite',
 			simulating: 'Simuliere',
@@ -657,7 +659,8 @@ export default {
 			binaryFileSizes: 'Benutze binäre Dateigrößen',
 			binaryFileSizesTitle: 'Dateigrößen werden mit einer Basis von 1024 (IEC) statt 1000 (SI) angezeigt',
 			disableAutoComplete: 'Autovervollständigung deaktivieren',
-			disableAutoCompleteTitle: 'Keine Autovervollständigung bei der Eingabe von Codes oder Temperaturen anzeigen'
+			disableAutoCompleteTitle: 'Keine Autovervollständigung bei der Eingabe von Codes oder Temperaturen anzeigen',
+			dashboardModeTitle: 'Übersichtsmodus'
 		},
 		settingsCommunication: {
 			caption: 'Kommunikation',
@@ -807,32 +810,6 @@ export default {
 		superUser: 'Als root-Benutzer laufen (potentiell gefährlich)'
 	},
 	plugins: {
-		accelerometer: {
-			name: 'Beschleunigungsmesser',
-			listTitle: 'CSV-Dateien',
-			none: 'Keine Dateien',
-			chartCaption: 'Beschleunigungsproben',
-			noData: 'Keine Proben geladen',
-			analysis: 'Frequenzanalyse',
-			samplingRate: 'Abtastrate (in Hz)',
-			start: 'Start',
-			end: 'Ende',
-			wideBand: 'Breitbandanalyse',
-			analyze: 'Analysieren',
-			back: 'Zurück',
-			overflowPrompt: {
-				title: 'Überlaufe erkannt',
-				prompt: 'Diese Datei hat bereichtet, dass es zu Überlaufen gekommen ist. Sind Sie sicher, dass Sie fortfahren möchten?'
-			},
-			loadError: 'Konnte CSV-Datei nicht laden',
-			parseError: 'Konnte CSV-Datei nicht parsen',
-			frequency: 'Frequenz (in Hz)',
-			amplitudes: 'Amplituden',
-			samples: 'Proben',
-			accelerations: 'Beschleunigungen (in g)',
-			sampleTooltip: 'Probe #{0}',
-			frequencyTooltip: '{0} ± {1} Hz'
-		},
 		autoUpdate: {
 			menuCaption: 'Aktualisierung'
 		},
@@ -916,6 +893,7 @@ export default {
 			},
 			
 			renderFailed: 'Vorige Darstellung fehlgeschlagen. Ändere Darstellungsqualität auf SBC',
+			showFSOverlay : 'Overlay bei Vollbild anzeigen'
 		},
 		heightmap: {
 			menuCaption: 'Höhenkarte',
@@ -952,8 +930,8 @@ export default {
 			caption: 'Allgemein'
 		},
 		plugins: {
-			generalCaption: 'Eingebaute Plugins',
-			machineCaption: 'Maschinenspezifische Plugins',
+			generalCaption: 'Integrierte Plugins',
+			machineCaption: 'Externe Plugins',
 			headers: {
 				name: 'Name',
 				author: 'Autor',

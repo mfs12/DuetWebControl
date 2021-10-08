@@ -10,6 +10,12 @@ import { localStorageSupported, getLocalSetting, setLocalSetting, removeLocalSet
 import patch from '../utils/patch.js'
 import Path from '../utils/path.js'
 
+export const DashboardMode = {
+	default: 'Default',
+	fff: 'FFF',
+	cnc: 'CNC'
+}
+
 export default {
 	namespaced: true,
 	state: {
@@ -35,9 +41,10 @@ export default {
 			rotation: 0,
 			flip: 'none'
 		},
+		dashboardMode : DashboardMode.default,
 
 		enabledPlugins: ['Height Map'],
-		plugins: {}										// Third-party values
+		plugins: {},										// Third-party values
 	},
 	actions: {
 		async applyDefaults({ state, dispatch }) {

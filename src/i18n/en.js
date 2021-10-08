@@ -303,6 +303,7 @@ export default {
 		notImplemented: '{0} is not implemented',
 		invalidPassword: 'Invalid password!',
 		noFreeSession: 'No more free sessions!',
+		badVersion: 'Incompatible firmware version',
 		connect: 'Failed to connect to {0}',
 		disconnect: 'Could not disconnect cleanly from {0}',
 		disconnected: 'Could not complete action because the connection has been terminated',
@@ -364,6 +365,7 @@ export default {
 			pausing: 'Pausing',
 			paused: 'Paused',
 			resuming: 'Resuming',
+			cancelling: 'Cancelling',
 			printing: 'Printing',
 			processing: 'Processing',
 			simulating: 'Simulating',
@@ -642,7 +644,8 @@ export default {
 			runMesh: 'Run Mesh Compensation (G29)',
 			loadMesh: 'Load Saved Height Map from SD Card (G29 S1)',
 			axesNotHomed: 'The following axis is not homed:|The following axes are not homed:',
-			noAxes: 'No Axes'
+			noAxes: 'No Axes',
+			workzero: 'Go To Zero'
 		},
 		settingsAbout: {
 			caption: 'About',
@@ -657,7 +660,8 @@ export default {
 			binaryFileSizes: 'Use binary file sizes',
 			binaryFileSizesTitle: 'File sizes are displayed with a basis of 1024 (IEC) instead of 1000 (SI)',
 			disableAutoComplete: 'Disable auto-completion',
-			disableAutoCompleteTitle: 'Do not show auto-complete list when typing in code or temperature inputs'
+			disableAutoCompleteTitle: 'Do not show auto-complete list when typing in code or temperature inputs',
+			dashboardModeTitle: 'Dashboard Mode'
 		},
 		settingsCommunication: {
 			caption: 'Communication',
@@ -724,6 +728,18 @@ export default {
 		},
 		speedFactor: {
 			caption: 'Speed Factor'
+		},
+		spindle: {
+			title: 'Spindles',
+			spindle: 'Spindle',
+			active: 'Active',
+			direction: 'Direction',
+			currentRPM: 'Current RPM',
+			setRPM: 'Set RPM',
+			on: 'On',
+			off: 'Off',
+			forward: 'forward',
+			reverse: 'reverse'
 		},
 		status: {
 			caption: 'Status',
@@ -807,32 +823,6 @@ export default {
 		superUser: 'Run as root user (potentially dangerous)'
 	},
 	plugins: {
-		accelerometer: {
-			name: 'Accelerometer',
-			listTitle: 'CSV Files',
-			none: 'No Files',
-			chartCaption: 'Acceleration Samples',
-			noData: 'No Samples Loaded',
-			analysis: 'Frequency Analysis',
-			samplingRate: 'Sampling Rate (in Hz)',
-			start: 'Start',
-			end: 'End',
-			wideBand: 'Wide-band analysis',
-			analyze: 'Analyze',
-			back: 'Back',
-			overflowPrompt: {
-				title: 'Overflows detected',
-				prompt: 'This CSV file has reported overflows. Are you sure you wish to continue?'
-			},
-			loadError: 'Failed to load CSV file',
-			parseError: 'Failed to parse CSV file',
-			frequency: 'Frequency (in Hz)',
-			amplitudes: 'Amplitudes',
-			samples: 'Samples',
-			accelerations: 'Accelerations (in g)',
-			sampleTooltip: 'Sample #{0}',
-			frequencyTooltip: '{0} ± {1} Hz'
-		},
 		autoUpdate: {
 			menuCaption: 'Update'
 		},
@@ -842,35 +832,35 @@ export default {
 			fullscreen: 'Full Screen',
 			showConfiguration: 'Show Viewer Configuration',
 			resetCamera: {
-				caption : 'Reset Camera',
+				caption: 'Reset Camera',
 				title: 'Reset camera to home position'
 			},
 			cancelLoad: 'Cancel File Loading',
-			reloadView: { 
-				caption : 'Reload View',
-				title : 'Reload the current gcode, this is used when changing settings like color, feedrate color, etc.'
+			reloadView: {
+				caption: 'Reload View',
+				title: 'Reload the current gcode, this is used when changing settings like color, feedrate color, etc.'
 			},
-			loadCurrentJob:  { 
-				caption :'Load Current Job',  
-				title : 'Load the current printing or simulating job'
+			loadCurrentJob: {
+				caption: 'Load Current Job',
+				title: 'Load the current printing or simulating job'
 			},
-			unloadGCode:  { 
+			unloadGCode: {
 				caption: 'Unload GCode',
-				title : 'Remove the loaded gcode from the viewer'
+				title: 'Remove the loaded gcode from the viewer'
 			},
-			loadLocalGCode: { 
-				caption : 'Load Local GCode',
-				title : 'Load a file from your local drive into the viewer'
+			loadLocalGCode: {
+				caption: 'Load Local GCode',
+				title: 'Load a file from your local drive into the viewer'
 			},
 			showCursor: 'Show Cursor',
 			showTravels: 'Show Travels',
 			renderQuality: {
-				caption : 'Render Quality',
-				title : 'Adjust the visualization quality of the viewer. The higher the level the more vertices and render modes become available'
+				caption: 'Render Quality',
+				title: 'Adjust the visualization quality of the viewer. The higher the level the more vertices and render modes become available'
 			},
 			sbc: 'SBC',
 			low: 'Low',
-			medium: 'Medium',			
+			medium: 'Medium',
 			high: 'High',
 			ultra: 'Ultra',
 			max: 'Max',
@@ -879,14 +869,14 @@ export default {
 			showSolid: 'Show Solid',
 			spreadLines: 'Spread Lines',
 			extruders: {
-				caption:  'Extruders',
-				title : 'Sets the color used for rendering an extruder'
+				caption: 'Extruders',
+				title: 'Sets the color used for rendering an extruder'
 			},
 			tool: 'Tool {0}',
 			resetColor: 'Reset Tool Color | Reset Tool Colors',
-			renderMode : {
-				caption : 'Render Mode | Render Modes',
-				title : 'Render mode allows you to set extruder color or feedrate line coloring in the viewer'
+			renderMode: {
+				caption: 'Render Mode | Render Modes',
+				title: 'Render mode allows you to set extruder color or feedrate line coloring in the viewer'
 			},
 			color: 'Color',
 			feedrate: 'Feedrate',
@@ -895,26 +885,30 @@ export default {
 			minFeedrateColor: 'Minimum Feedrate Color',
 			maxFeedrateColor: 'Maximum Feedrate Color',
 			progress: {
-				caption : 'Progress',
+				caption: 'Progress',
 				title: 'Set the printed color for progress tracking'
 			},
 			topClipping: 'Top Clipping',
-			bottomClipping:'Bottom Clipping',
+			bottomClipping: 'Bottom Clipping',
 			progressColor: 'Progress Color',
 			liveZTracking: 'Live Z Tracking',
 			settings: 'Settings',
 			background: 'Background',
-			bedRenderMode:  'Bed Render Mode',
+			bedRenderMode: 'Bed Render Mode',
 			bed: 'Bed',
 			volume: 'Volume',
 			showAxes: 'Show Axes',
 			showObjectLabels: 'Show Object Labels',
 			cameraInertia: 'Camera Inertia',
 			showObjectSelection: {
-				caption : 'Show Object Selection',
-				title : 'Enabled if objects could be detected in the current print'
+				caption: 'Show Object Selection',
+				title: 'Enabled if objects could be detected in the current print'
 			},
 			renderFailed: 'Previous render failed. Setting render quality to SBC',
+			showFSOverlay: 'Show Full Screen Overlay',
+			useHQRendering: 'High Quality Render (Round)',
+			useSpecular: "Use Specular Highlight",
+			feature: "Feature"
 		},
 		heightmap: {
 			menuCaption: 'Height Map',
@@ -938,6 +932,10 @@ export default {
 			heat: 'Heat',
 			invertZ: 'Invert Z coordinates',
 			topView: 'Top view',
+			range: 'Range',
+			fixed: 'Fixed',
+			deviation: 'Deviation',
+			resetView: 'Reset View'
 		},
 		objectModelBrowser: {
 			menuCaption: 'Object Model'
@@ -951,8 +949,8 @@ export default {
 			caption: 'General'
 		},
 		plugins: {
-			generalCaption: 'Built-in Plugins',
-			machineCaption: 'Machine-Specific Plugins',
+			generalCaption: 'Integrated Plugins',
+			machineCaption: 'External Plugins',
 			headers: {
 				name: 'Name',
 				author: 'Author',
