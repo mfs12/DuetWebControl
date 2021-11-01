@@ -108,8 +108,9 @@ export default {
 				{ text: 'z.integral', value: 'axis[2].integral' },
 				{ text: 'config', value: 'config.id' },
 				{ text: 'date', value: 'date' },
-				{ text: 'samples', value: 'samples' },
+				{ text: 'overflows', value: 'overflows' },
 				{ text: 'samplingRate', value: 'samplingRate' },
+				{ text: 'samples', value: 'samples' },
 			],
 
 			wideBand: false,
