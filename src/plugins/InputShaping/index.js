@@ -7,6 +7,7 @@ import { registerRoute } from '../../routes';
 
 import de from './i18n/de.js';
 import en from './i18n/en.js';
+import zh_cn from './i18n/zh_cn.js';
 import InputShaping from './InputShaping.vue';
 
 import Algorithm from './Algorithm.vue';
@@ -29,6 +30,7 @@ Vue.component('test-command', TestCommand);
 
 registerPluginLocalization('inputShaping', 'de', de);
 registerPluginLocalization('inputShaping', 'en', en);
+registerPluginLocalization('inputShaping', 'zh_cn', zh_cn);
 
 registerRoute(InputShaping, {
 	Settings: {
